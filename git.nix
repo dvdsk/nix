@@ -23,13 +23,12 @@
 	   enable = true;
 	   shellAbbrs = {
 		 # Git abbreviations
-		 "ga" = "git add";
 		 "gau" = "git add --update";
-		 "gc" = "git commit";
 		 "gcmsg" = "git commit -am";
 		 "gcob" = "git checkout -b";
 		 "gd" = "git diff";
 		 "gst" = "git status";
+		 "gp" = "git push";
 	   };
 	 };
 	# # soon
