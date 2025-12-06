@@ -1,4 +1,5 @@
 # nixos-rebuild build --flake .#Work
+# nixos-rebuild switch --flake .#Work
 {
 	inputs = { 
 		nixpkgs.url      = "github:NixOS/nixpkgs/nixos-unstable";
@@ -23,7 +24,14 @@
 		machine = system: module: (lib.nixosSystem {
 			specialArgs = { inherit myOverlays; };
 			system = system;
-			modules = [ module ./mixins/common.nix ];
+			modules = [ 
+				module ./mixins/common.nix
+				home-manager.nixosModules.home-manager {
+					home-manager.useGlobalPkgs = true;
+					home-manager.useUserPackages = true;
+					home-manager.users.yara = ./home.nix;
+				}
+			];
 		});
 	in {
 

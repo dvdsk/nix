@@ -1,12 +1,12 @@
 { pkgs, lib, inputs, config, myOverlays, home-manager, ... }: {
 
 	users.users.yara.isNormalUser = true;
-	home-manager.users.yara = { pkgs, ...}: {
-		home.packages = [ pkgs.atool pkgs.httpie ];
-		programs.bash.enable = true;
-
-		home.stateVersion = "25.11";
-	};
+	# home-manager.users.yara = { pkgs, ...}: {
+	# 	home.packages = [ pkgs.atool pkgs.httpie ];
+	# 	programs.bash.enable = true;
+	#
+	# 	home.stateVersion = "25.11";
+	# };
 
 	# users.users.yara = {
 	# 	isNormalUser = true;

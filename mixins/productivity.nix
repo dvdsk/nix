@@ -6,5 +6,6 @@
 		anki
 		audacity
 		vlc
+		nautilus
 	];
 }
