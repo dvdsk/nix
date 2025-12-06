@@ -5,16 +5,19 @@
 		rahul-config.url = "github:rrbutani/nix-config";
 		flake-utils.url  = "github:numtide/flake-utils";
 		ragenix.url      = "github:yaxitech/ragenix";
+		home-manager.url = "github:nix-community/home-manager";
+
+		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
-	outputs = { ragenix, flake-utils, rahul-config, nixpkgs, self,  ... } @ inputs:
+	outputs = { ragenix, flake-utils, home-manager, rahul-config, nixpkgs, self,
+	... } @ inputs:
 	let
 	  inherit (nixpkgs) lib;
 	  listDir = rahul-config.lib.util.list-dir;
 
 		myOverlays = [
 		  self.overlays.default ragenix.overlays.default
-		  # obs-gamepad.overlays.default (import ./overlays.nix inputs)
 		];
 
 		machine = system: module: (lib.nixosSystem {
