@@ -1,7 +1,9 @@
 { pkgs, config, self, ...}: {
 	imports = [
 		./hardware.nix
-		./../../mixins/desktop-env.nix
+		# ./../../mixins/desktop-env.nix
+		# ./../../mixins/productivity.nix
+		./../../mixins/cli-tool.nix
 	];
 
 
@@ -61,29 +63,7 @@ services.xserver.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    discord-ptb
-
-    alacritty
-    alacritty-theme
-
-    git
-    neovim
-	btop
-
-	kickoff
-    zed-editor
-    pass
-	killall
-	bat
-	nix-output-monitor
-
-    curl
-    wget
-    ripgrep
-	fd
 	slack
-	zoxide
-	efibootmgr
   ];
 
   #services.getty = {

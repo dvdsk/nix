@@ -13,7 +13,7 @@
 
 
 	environment.systemPackages = with pkgs; [
-		discord-ptb
+		discord
 
 		alacritty
 		alacritty-theme
@@ -22,20 +22,19 @@
 		neovim
 		btop
 
-		kickoff
 		zed-editor
 		pass
 		killall
 		bat
 		nix-output-monitor
 
-		tuigreet
 		curl
 		wget
 		ripgrep
 		fd
-		slack
 		zoxide
 		efibootmgr
 	];
+
+  nixpkgs = { overlays = myOverlays; config.allowUnfree = true; };
 }

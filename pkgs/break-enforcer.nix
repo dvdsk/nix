@@ -18,7 +18,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-I1tr37DQyXFB4ucutQv84tbK8VtuF1kVXSb7ayyfkGY=";
   };
 
-  cargoHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+  cargoHash = "sha256-GAC9sKiGyaTY2LnGOxVGTxXteAVOeQZZ79N4ae2GOrY=";
 
   packages = with pkgs; [
   	alsa-utils
