@@ -1,3 +1,4 @@
+# nixos-rebuild build --flake .#Work
 {
 	inputs = { 
 		nixpkgs.url      = "github:NixOS/nixpkgs/nixos-unstable";
@@ -24,11 +25,8 @@
 		};
 
 		machine = system: module: (lib.nixosSystem {
-			inherit system; specialArgs = special system;
-			modules = [
-			  ./mixins/common.nix
-			  module { home-manager.extraSpecialArgs = special system; }
-			] ++ builtins.attrValues self.outputs.nixosModules;
+			system = system;
+			modules = [ module ./mixins/common.nix ];
 		});
 	in {
 

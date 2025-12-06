@@ -1,6 +1,7 @@
 { pkgs, config, self, ...}: {
 	imports = [
 		./hardware.nix
+		./../../mixins/desktop-env.nix
 	];
 
 
@@ -60,10 +61,6 @@ services.xserver.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    grim # screenshot functionality
-    slurp # screenshot functionality
-    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-
     discord-ptb
 
     alacritty
@@ -80,7 +77,6 @@ services.xserver.enable = true;
 	bat
 	nix-output-monitor
 
-    greetd.tuigreet
     curl
     wget
     ripgrep
@@ -89,17 +85,6 @@ services.xserver.enable = true;
 	zoxide
 	efibootmgr
   ];
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-        user = "greeter";
-      };
-    };
-  };
-
 
   #services.getty = {
   #  autologinUser = "yara";
@@ -112,12 +97,6 @@ services.xserver.enable = true;
   # Enable the gnome-keyring secrets vault.
   # Will be exposed through DBus to programs willing to store secrets.
   services.gnome.gnome-keyring.enable = true;
-
-  # enable sway window manager
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
