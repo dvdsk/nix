@@ -28,6 +28,7 @@
 	   shellAbbrs = {
 		 # Git abbreviations
 		 "gau" = "git add --update";
+		 "ga" = "git add";
 		 "gcmsg" = "git commit -am";
 		 "gcob" = "git checkout -b";
 		 "gd" = "git diff";

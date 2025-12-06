@@ -12,6 +12,7 @@
 
   imports = [
   	./git.nix
+	./sway.nix
   ];
 
   # This value determines the Home Manager release that your
