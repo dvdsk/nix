@@ -23,5 +23,10 @@
 	  proggyfonts
 	];
 
-  nixpkgs = { overlays = myOverlays; config.allowUnfree = true; };
+	  environment.sessionVariables = rec {
+		VISUAL  = "zed-editor";
+		EDITOR = "nvim";
+	  };
+
+	  nixpkgs = { overlays = myOverlays; config.allowUnfree = true; };
 }

@@ -21,8 +21,13 @@
 
 		myOverlays = [
 		  self.overlays.default ragenix.overlays.default
-		  break-enforcer.overlays.default
+		  break-enforcer.overlays.default # makes break-enforcer available under pkgs
 		];
+
+		special = system: {
+		  # pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+		  inherit myOverlays inputs self;
+		};
 
 		machine = system: module: (lib.nixosSystem {
 			specialArgs = { inherit myOverlays; };
@@ -34,6 +39,8 @@
 					home-manager.useUserPackages = true;
 					home-manager.users.yara = ./home.nix;
 				}
+				module { home-manager.extraSpecialArgs = special system; }
+				# make the nixos break-enforcer module available
 				break-enforcer.nixosModules.break-enforcer
 			];
 		});

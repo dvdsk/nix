@@ -9,6 +9,8 @@
 		ripgrep
 		neomutt
 		fd
+		hyperfine
+		tokei
 
 		pass
 		gnupg
@@ -17,6 +19,7 @@
 		neovim
 		killall
 		fish
+		zsh
 		bash
 
 		curl

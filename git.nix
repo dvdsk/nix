@@ -35,6 +35,7 @@
 		 "gst" = "git status";
 		 "gp" = "git push";
 		 "v" = "nvim";
+		 "gpf" = "git push --force-with-lease";
 	   };
 		plugins = with pkgs.fishPlugins;
 		let mkPlugin = p: { inherit (p) src; name = "${p.pname}"; }; in

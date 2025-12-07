@@ -14,8 +14,8 @@
 		  xdgAutostart = true;
 		  # variables = [ "--all" ]; # TODO: check if importing PATH for xdg-desktop-portal is working
 		};
-		# config = null;
-		# extraConfigEarly = "include ~/.config/sway/config";
+		config = null;
+		extraConfigEarly = "include ~/.config/sway/config";
 		# extraConfig = "include ~/config/sway_config";
 	  };
 
