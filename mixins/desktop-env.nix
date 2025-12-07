@@ -22,8 +22,7 @@
 		tuigreet
 	];
 
-	# programs.break-enforcer.enable = true;
-
+  services.break-enforcer.enable = true;
   services.greetd = {
     enable = true;
     settings = {

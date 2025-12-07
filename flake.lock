@@ -65,8 +65,8 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1765126763,
-        "narHash": "sha256-x53BogIumyXEAbhfsH81lDDUuooYtr4+Uzo9DKRDZzs=",
+        "lastModified": 1765139029,
+        "narHash": "sha256-HsM9AI/XGaNC+QMlzHw74iFiRe/YA+lWhiwbPp4frRY=",
         "path": "/home/yara/bf/break-enforcer",
         "type": "path"
       },
@@ -365,11 +365,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1764667669,
-        "narHash": "sha256-7WUCZfmqLAssbDqwg9cUDAXrSoXN79eEEq17qhTNM/Y=",
+        "lastModified": 1764950072,
+        "narHash": "sha256-BmPWzogsG2GsXZtlT+MTcAWeDK5hkbGRZTeZNW42fwA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "418468ac9527e799809c900eda37cbff999199b6",
+        "rev": "f61125a668a320878494449750330ca58b78c557",
         "type": "github"
       },
       "original": {

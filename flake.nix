@@ -14,13 +14,14 @@
 	};
 
 	outputs = { ragenix, flake-utils, home-manager, rahul-config, nixpkgs, self,
-	... } @ inputs:
+	break-enforcer, ... } @ inputs:
 	let
 	  inherit (nixpkgs) lib;
 	  listDir = rahul-config.lib.util.list-dir;
 
 		myOverlays = [
 		  self.overlays.default ragenix.overlays.default
+		  break-enforcer.overlays.default
 		];
 
 		machine = system: module: (lib.nixosSystem {
@@ -33,6 +34,7 @@
 					home-manager.useUserPackages = true;
 					home-manager.users.yara = ./home.nix;
 				}
+				break-enforcer.nixosModules.break-enforcer
 			];
 		});
 	in {
