@@ -14,13 +14,15 @@
 
 		# broken, needs to be build with nightly
 		# for now manually installed
-		# break-enforcer
+		break-enforcer
 
 		alsa-utils
 
 
 		tuigreet
 	];
+
+	# programs.break-enforcer.enable = true;
 
   services.greetd = {
     enable = true;
