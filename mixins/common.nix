@@ -23,10 +23,12 @@
 	  proggyfonts
 	];
 
-	  environment.sessionVariables = rec {
+	  environment.sessionVariables = {
 		VISUAL  = "zed-editor";
 		EDITOR = "nvim";
 	  };
 
 	  nixpkgs = { overlays = myOverlays; config.allowUnfree = true; };
+	  # only enables it for sudo for some reason...
+	  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

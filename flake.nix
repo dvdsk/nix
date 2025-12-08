@@ -7,8 +7,8 @@
 		flake-utils.url  = "github:numtide/flake-utils";
 		ragenix.url      = "github:yaxitech/ragenix";
 		home-manager.url = "github:nix-community/home-manager";
-		# break-enforcer.url = "github:evavh/break-enforcer";
-		break-enforcer.url = "path:/home/yara/bf/break-enforcer";
+		break-enforcer.url = "github:evavh/break-enforcer";
+		# break-enforcer.url = "path:/home/yara/bf/break-enforcer";
 
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 	};

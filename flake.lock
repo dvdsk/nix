@@ -65,14 +65,17 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1765139029,
-        "narHash": "sha256-HsM9AI/XGaNC+QMlzHw74iFiRe/YA+lWhiwbPp4frRY=",
-        "path": "/home/yara/bf/break-enforcer",
-        "type": "path"
+        "lastModified": 1765139165,
+        "narHash": "sha256-urzFOWqTS7yOdtPMSQtR2F6rjwRzmJhcry7DCp1Pl/g=",
+        "owner": "evavh",
+        "repo": "break-enforcer",
+        "rev": "17e3e65697f810b65ce2925d681e922bfd8eaa6c",
+        "type": "github"
       },
       "original": {
-        "path": "/home/yara/bf/break-enforcer",
-        "type": "path"
+        "owner": "evavh",
+        "repo": "break-enforcer",
+        "type": "github"
       }
     },
     "crane": {
