@@ -8,5 +8,9 @@
 		audacity
 		vlc
 		nautilus
+
+		# TODO move somewhere else?
+		yubikey-manager
+		cryptsetup
 	];
 }
