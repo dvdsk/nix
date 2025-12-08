@@ -9,7 +9,8 @@
     "modules-left": [
         "sway/workspaces",
         "sway/mode",
-        "sway/scratchpad"
+        "sway/scratchpad",
+		"custom/break-enforcer"
     ],
     "modules-center": [
 		"clock#LA",
@@ -42,5 +43,9 @@
     },
     "pulseaudio": {
         "format": "{volume}%"
-    }
+    },
+	"custom/break-enforcer": {
+		"exec": "/run/current-system/sw/bin/break-enforcer status --update-period 1s",
+		"format": "{}"
+	}
 }

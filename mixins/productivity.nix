@@ -3,8 +3,12 @@
 		firefox
 		alacritty
 		alacritty-theme
-		zed-editor
+
+		zed-editor # cant log in
+
 		anki
+		anki-widget
+
 		audacity
 		vlc
 		nautilus

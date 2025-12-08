@@ -30,7 +30,7 @@
 		};
 
 		machine = system: module: (lib.nixosSystem {
-			specialArgs = { inherit myOverlays; };
+			specialArgs = { inherit myOverlays inputs; };
 			system = system;
 			modules = [ 
 				module ./mixins/common.nix

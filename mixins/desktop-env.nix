@@ -11,6 +11,7 @@
 		waybar
 		kickoff
 		kickoff-dot-desktop
+		# testytest
 
 		# broken, needs to be build with nightly
 		# for now manually installed
@@ -21,6 +22,12 @@
 
 		tuigreet
 	];
+
+
+	# environment.pathsToLink = [
+	# 	"/share/applications"
+	# 	"/share/xdg-desktop-portal"
+	# ];
 
   services.break-enforcer.enable = true;
   services.greetd = {
@@ -40,6 +47,16 @@
     enable = true;
     wrapperFeatures.gtk = true;
   };
+
+  # xdg = {
+  # portal = {
+  #   enable = true;
+  #   extraPortals = with pkgs; [
+  #     xdg-desktop-portal-wlr
+  #     xdg-desktop-portal-gtk
+  #   ];
+  # };
+# };
 
 }
 

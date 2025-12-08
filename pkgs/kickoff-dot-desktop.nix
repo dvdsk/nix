@@ -6,7 +6,7 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "kickoff-dot-desktop";
-  version = "unstable-2023-04-17";
+  version = "unstable-2023-05-17";
 
   src = fetchFromGitHub {
     owner = "j0ru";

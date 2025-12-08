@@ -35,7 +35,7 @@ exec --no-startup-id waybar
 # exec --no-startup-id /usr/bin/bash ~/bin/set_audio.sh
 
 # screen sharing
-exec /usr/libexec/xdg-desktop-portal -r
+# exec /usr/libexec/xdg-desktop-portal -r
 exec /usr/libexec/xdg-desktop-portal-wlr
 
 # run a polkit auth agent 

@@ -1,4 +1,4 @@
-{ pkgs, config, self, ...}: {
+{ pkgs, config, self, inputs, ...}@args : {
 	imports = [
 		./hardware.nix
 		./../../mixins/desktop-env.nix
@@ -57,7 +57,6 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

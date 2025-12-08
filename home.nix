@@ -21,6 +21,12 @@
 	  size = 24;
   };
 
+	# xdg.portal = { enable = true;
+	#      xdgOpenUsePortal = true;
+	#      extraPortals = with pkgs; [ xdg-desktop-portal-gtk xdg-desktop-portal-wlr ];
+	#      config.common.default = "gtk"; # TODO: set per-interface portal
+	#    };
+
     home.sessionVariables = {
       NIX_PATH = "nixpkgs=flake:nixpkgs";
       NIX_CONF_DIR = lib.mkDefault (config.home.homeDirectory + "/nix");
