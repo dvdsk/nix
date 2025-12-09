@@ -16,6 +16,8 @@
 		gnupg
 		pinentry-tty
 
+		strace
+
 		neovim
 		killall
 		fish

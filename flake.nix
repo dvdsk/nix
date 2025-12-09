@@ -1,7 +1,6 @@
 # sudo nixos-rebuild build --flake .#Work
 # sudo nixos-rebuild switch --flake .#Work
 
-# If you changed any of the inputs (including pkgs I think?)
 # sudo flake update
 
 {
