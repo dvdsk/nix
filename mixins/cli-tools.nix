@@ -28,6 +28,10 @@
 
 		rmpc
 
+		# home automation
+		text-widget 
+		ui
+
 		nix-output-monitor
 	];
 

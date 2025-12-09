@@ -7,8 +7,9 @@
 		zed-editor # cant log in
 
 		anki
-		anki-widget
-
+		# broken see build effort in anki-widget/flake checkout on	#Work
+		# anki-widget 
+	
 		audacity
 		vlc
 		nautilus

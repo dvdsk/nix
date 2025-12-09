@@ -1,5 +1,9 @@
-# nixos-rebuild build --flake .#Work
-# nixos-rebuild switch --flake .#Work
+# sudo nixos-rebuild build --flake .#Work
+# sudo nixos-rebuild switch --flake .#Work
+
+# If you changed any of the inputs (including pkgs I think?)
+# sudo flake update
+
 {
 	inputs = { 
 		nixpkgs.url      = "github:NixOS/nixpkgs/nixos-unstable";
@@ -8,13 +12,14 @@
 		ragenix.url      = "github:yaxitech/ragenix";
 		home-manager.url = "github:nix-community/home-manager";
 		break-enforcer.url = "github:evavh/break-enforcer";
+		home-automation.url = "github:dvdsk/HomeAutomation";
 		# break-enforcer.url = "path:/home/yara/bf/break-enforcer";
 
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
 	outputs = { ragenix, flake-utils, home-manager, rahul-config, nixpkgs, self,
-	break-enforcer, ... } @ inputs:
+	break-enforcer, home-automation, ... } @ inputs:
 	let
 	  inherit (nixpkgs) lib;
 	  listDir = rahul-config.lib.util.list-dir;
@@ -22,10 +27,10 @@
 		myOverlays = [
 		  self.overlays.default ragenix.overlays.default
 		  break-enforcer.overlays.default # makes break-enforcer available under pkgs
+		  home-automation.overlays.default
 		];
 
 		special = system: {
-		  # pkgs-stable = nixpkgs-stable.legacyPackages.${system};
 		  inherit myOverlays inputs self;
 		};
 
