@@ -7,6 +7,7 @@
 		fish.enable = true;
 	};
 
+	environment.localBinInPath =true;
 	environment.shellAliases = {
 	 # Git abbreviations
 	 "gau" = "git add --update";
