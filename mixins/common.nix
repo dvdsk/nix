@@ -43,4 +43,5 @@
 	  nixpkgs = { overlays = myOverlays; config.allowUnfree = true; };
 	  # only enables it for sudo for some reason...
 	  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+	  nix.settings.trusted-users = [ "root" "@wheel" "yara" ];
 }
