@@ -5,8 +5,21 @@
   home.homeDirectory = "/home/yara";
 
   home.packages = [
-  	pkgs.fortune
+  	pkgs.gammastep
   ];
+
+# TODO not working...
+  services.gammastep.settings = {
+	  enable = true;
+	  provider = "manual";
+	  latitute = "52.1326";
+	  longitute = "5.2913";
+	  temperature = {
+		  day = 6500;
+		  night = 3500;
+	  };
+  };
+
 
   imports = [
   	./git.nix

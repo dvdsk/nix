@@ -2,10 +2,15 @@
 
 { pkgs, lib, inputs, config, myOverlays, ... }: 
 
-{
-	networking.hosts = {
-		"192.168.1.15" = [ "asgard" ];
-	};
+let 
+# 	user_mapping = [
+# 		["yara-work" "yara"];
+# 	];
+# 	principle_for = user: 
+# in {
+# 	networking.hosts = {
+# 		"192.168.1.15" = [ "asgard" ];
+# 	};
 
 	security.krb5 = {
 		enable = true;
@@ -41,13 +46,38 @@
 			GSS-method = lib.mkForce "static";
 		};
 		Static = { # TODO automate this bit?
-			"yara/work@YGGDRASIL" = "yara";
+			"yara-work@YGGDRASIL" = "yara";
 		};
 	};
 
 	fileSystems."/home/yara/Music" = {
 		device = "asgard:/srv/music";
 		fsType = "nfs4";
+	};
+
+	environment.systemPackages = with pkgs; [
+		kstart
+	];
+
+	systemd.user.services.kerberos_mount = {
+		enable = true;
+		description = "Initializes, caches and renews Kerberos tickets";
+		after = [ "default.target" ];
+		wantedBy = [ "default.target" ];
+
+		serviceConfig = {
+			Type = "exec";
+			RemainAfterExit = "yes";
+			ExecStart = ''${pkgs.kstart}/bin/k5start \
+				# run in daemon mode, recheck ticket every  30 minutes \
+				-K 30 \
+				# authenticate using keytab rather then asking for a password \
+				-f %h/.local/keytab \
+				# store this file as ticket cache \
+				-k /tmp/krb5cc_%U \
+				# principle to get tickets for \
+				%u'';
+		};
 	};
 
 	# TODO cache and store (agenix?) and move into place on rebuild

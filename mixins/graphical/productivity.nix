@@ -2,6 +2,7 @@
 	environment.systemPackages = with pkgs; [
 		zed-editor # cant log in
 		inputs.tracy.packages.${pkgs.system}.default
+		# inputs.zed.packages.${pkgs.system}.default
 
 		anki
 		# broken see build effort in anki-widget/flake checkout on	#Work

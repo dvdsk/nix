@@ -13,6 +13,8 @@
 		break-enforcer.url = "github:evavh/break-enforcer";
 		home-automation.url = "github:yara-blue/HomeAutomation";
 		tracy.url = "github:tukanoidd/tracy.nix";
+		zed.url = "github:zed-industries/zed";
+		zed.inputs.nixpkgs.follows = "nixpkgs";
 		# break-enforcer.url = "path:/home/yara/bf/break-enforcer";
 
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
