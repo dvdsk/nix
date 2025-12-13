@@ -32,21 +32,25 @@
 		  home-automation.overlays.default
 		];
 
-		special = system: {
-		  inherit myOverlays inputs self;
-		};
-
-		machine = system: module: (lib.nixosSystem {
+		machine = system: hostname: let
+			system_module = ./hosts/${hostname}/main.nix;
+			special = system: {
+			  inherit myOverlays inputs self;
+			};
+		in (lib.nixosSystem {
 			specialArgs = { inherit myOverlays inputs; };
 			system = system;
 			modules = [ 
-				module ./mixins/common.nix
+				system_module 
+				./mixins/common.nix
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
 					home-manager.users.yara = ./home.nix;
 				}
-				module { home-manager.extraSpecialArgs = special system; }
+				{ home-manager.extraSpecialArgs = { 
+					inherit myOverlays inputs system hostname; 
+				};}
 				# make the nixos break-enforcer module available
 				break-enforcer.nixosModules.break-enforcer
 			];
@@ -54,7 +58,7 @@
 	in {
 
 		 nixosConfigurations = {
-			 Work = machine "x86_64-linux" ./hosts/work/main.nix;
+			 Work = machine "x86_64-linux" "work";
 		 };
 
 		overlays.default = final: _: listDir {

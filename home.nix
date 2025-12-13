@@ -23,6 +23,7 @@
 
   imports = [
   	./git.nix
+	./nfs.nix
 	# ./sway.nix # decided to do this mutably
   ];
 
