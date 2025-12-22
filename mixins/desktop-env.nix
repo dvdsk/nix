@@ -29,11 +29,12 @@
   services.break-enforcer.enable = true;
   services.greetd = {
     enable = true;
-    settings = {
-      default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd sway";
-        user = "greeter";
+    settings = rec {
+      initial_session = {
+		command = "${pkgs.sway}/bin/sway";
+		user = "yara";
       };
+      default_session = initial_session;
     };
   };
 
