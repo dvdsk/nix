@@ -3,6 +3,7 @@
 		discord
 		fluffychat
 		firefox
+		pavucontrol
 
 		alacritty
 		alacritty-theme
