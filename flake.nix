@@ -38,7 +38,7 @@
 			  inherit myOverlays inputs self;
 			};
 		in (lib.nixosSystem {
-			specialArgs = { inherit myOverlays inputs; };
+			specialArgs = { inherit myOverlays inputs hostname; };
 			system = system;
 			modules = [ 
 				system_module 
@@ -59,6 +59,7 @@
 
 		 nixosConfigurations = {
 			 Work = machine "x86_64-linux" "work";
+			 Abydos = machine "x86_64-linux" "abydos";
 		 };
 
 		overlays.default = final: _: listDir {
