@@ -5,6 +5,7 @@
 		./../../mixins/build-tools.nix
 		./../../mixins/cli-tools.nix
 		./../../mixins/nfs.nix
+		./../../mixins/vpn.nix
 		./../../mixins/language-tools.nix
 		./../../mixins/graphical/productivity.nix
 		./../../mixins/graphical/common.nix
@@ -50,6 +51,9 @@
     #media-session.enable = true;
   };
 
+  services.openssh = {
+	  enable = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.yara = {
@@ -57,6 +61,13 @@
     description = "Yara";
     extraGroups = [ "networkmanager" "wheel" ];
   };
+  users.users.kate = {
+    isNormalUser = true;
+    description = "Kate";
+	openssh.authorizedKeys.keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEHWfBIxvY4c0Rdava/cAEa3qGUOxMSt4Cu0Ap7RtSK7"];
+    extraGroups = [ "networkmanager" ];
+  };
+
 
   # Install firefox.
   programs.firefox.enable = true;

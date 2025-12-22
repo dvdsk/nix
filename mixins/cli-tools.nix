@@ -7,6 +7,7 @@
 		bat
 		htop
 		btop
+		dua 			# disk usage
 		ripgrep
 		neomutt
 		fd
