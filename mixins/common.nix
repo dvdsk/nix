@@ -52,13 +52,15 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
-  # Yubikey for ssh
-  services.udev.packages = [ pkgs.yubikey-personalization ];
-
   environment.sessionVariables = {
     VISUAL = "zeditor";
     EDITOR = "nvim";
   };
+
+  networking.extraHosts = ''
+192.168.1.43 sgc
+192.168.1.15 asgard
+'';
 
   nixpkgs = {
     overlays = myOverlays;

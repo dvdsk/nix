@@ -17,6 +17,7 @@
 		pass
 		gnupg
 		pinentry-tty
+		yubikey-personalization
 
 		strace
 		nmap
@@ -58,4 +59,12 @@
 		enableSSHSupport = true;
 		# pinentryPackage = pkgs.pinentry-tty;
 	};
+
+	# use gpg as ssh agent
+	programs.ssh.startAgent = false;
+	environment.shellInit = ''
+	    gpg-connect-agent /bye
+    	export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+	'';
+
 }

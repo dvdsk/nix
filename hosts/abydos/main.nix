@@ -52,10 +52,6 @@
     #media-session.enable = true;
   };
 
-  services.openssh = {
-	  enable = true;
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.yara = {
     isNormalUser = true;

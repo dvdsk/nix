@@ -49,6 +49,8 @@
 				# TODO request adguard here https://gitlab.com/rycee/nur-expressions/-/issues
 				leechblock-ng
 				passff
+				vimium-c
+
 			];
 		};
 	};
