@@ -48,6 +48,10 @@
       settings.user = {
         email = "git@yara.blue";
         name = "Yara";
+		behavior = "own";
+		backend = "gpg";
+		# yubikey backed signing subkey
+		key = "12A0067B454A920F";
       };
     };
   };
