@@ -35,6 +35,27 @@
 	  size = 24;
   };
 
+  programs.firefox = {
+		enable = true;
+		nativeMessagingHosts = [ pkgs.passff-host ];
+		profiles.default = {
+			id = 0;
+			name = "Default";
+			settings = {
+				extensions.autoDisableScopes = 0;
+			};
+			extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
+				ublock-origin
+				# TODO request adguard here https://gitlab.com/rycee/nur-expressions/-/issues
+				leechblock-ng
+				passff
+				vimium-c
+
+			];
+		};
+	};
+
+
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {

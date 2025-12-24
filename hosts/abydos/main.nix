@@ -52,10 +52,6 @@
     #media-session.enable = true;
   };
 
-  services.openssh = {
-	  enable = true;
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.yara = {
     isNormalUser = true;
@@ -65,6 +61,27 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  fileSystems."/home/yara/Documents" = {
+    device = "asgard:/home/yara/Documents";
+    fsType = "nfs4";
+  };
+  fileSystems."/home/yara/Prive" = {
+    device = "asgard:/home/yara/prive";
+    fsType = "nfs4";
+  };
+  fileSystems."/home/yara/Videos/Series" = {
+    device = "asgard:/srv/videos/series";
+    fsType = "nfs4";
+  };
+  fileSystems."/home/yara/Share" = {
+    device = "asgard:/srv/share";
+    fsType = "nfs4";
+  };
+  fileSystems."/home/yara/Photos" = {
+    device = "asgard:/srv/photos";
+    fsType = "nfs4";
+  };
 
   # Enable the gnome-keyring secrets vault.
   # Will be exposed through DBus to programs willing to store secrets.

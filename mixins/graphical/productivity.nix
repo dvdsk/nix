@@ -6,11 +6,12 @@
 		# inputs.zed.packages.${pkgs.system}.default
 
 		sqlitebrowser
+		gnome-disk-utility
 
 		anki
 		# broken see build effort in anki-widget/flake checkout on	#Work
-		# anki-widget 
-	
+		# anki-widget
+
 		audacity
 		vlc
 		nautilus
@@ -22,4 +23,3 @@
 
 	programs.localsend.enable = true;
 }
-

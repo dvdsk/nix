@@ -4,7 +4,7 @@
 # sudo flake update
 
 {
-	inputs = { 
+	inputs = {
 		nixpkgs.url      = "github:NixOS/nixpkgs/nixos-unstable";
 		rahul-config.url = "github:rrbutani/nix-config";
 		flake-utils.url  = "github:numtide/flake-utils";
@@ -13,6 +13,10 @@
 		break-enforcer.url = "github:evavh/break-enforcer";
 		home-automation.url = "github:yara-blue/HomeAutomation";
 		tracy.url = "github:tukanoidd/tracy.nix";
+		firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+		};
 		zed.url = "github:zed-industries/zed";
 		zed.inputs.nixpkgs.follows = "nixpkgs";
 		# break-enforcer.url = "path:/home/yara/bf/break-enforcer";
@@ -40,16 +44,16 @@
 		in (lib.nixosSystem {
 			specialArgs = { inherit myOverlays inputs hostname; };
 			system = system;
-			modules = [ 
-				system_module 
+			modules = [
+				system_module
 				./mixins/common.nix
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
 					home-manager.users.yara = ./home.nix;
 				}
-				{ home-manager.extraSpecialArgs = { 
-					inherit myOverlays inputs system hostname; 
+				{ home-manager.extraSpecialArgs = {
+					inherit myOverlays inputs system hostname;
 				};}
 				# make the nixos break-enforcer module available
 				break-enforcer.nixosModules.break-enforcer

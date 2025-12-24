@@ -3,5 +3,6 @@
 		kodi
 		freetube
 		steam
+		telegram-desktop
 	];
 }

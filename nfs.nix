@@ -1,8 +1,9 @@
-{ pkgs, hostname, ... }: 
+{ pkgs, hostname, ... }:
 
-let 
-	user = {
+let
+	kerberos_principle = {
 		"work" = "yara-work";
+		"abydos" = "yara";
 	}."${hostname}";
 in {
 	systemd.user.enable = true;
@@ -28,7 +29,7 @@ in {
 				# store this file as ticket cache \
 				-k /tmp/krb5cc_%U \
 				# principle to get tickets for \
-				${user}'';
+				${kerberos_principle}'';
 		};
 	};
 }

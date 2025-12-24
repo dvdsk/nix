@@ -1,53 +1,79 @@
-{ pkgs, lib, inputs, config, myOverlays, home-manager, ... }: {
+{
+  pkgs,
+  lib,
+  inputs,
+  config,
+  myOverlays,
+  home-manager,
+  ...
+}:
+{
 
-	users.users.yara.isNormalUser = true;
-	users.defaultUserShell = pkgs.fish;
+  users.users.yara.isNormalUser = true;
+  users.defaultUserShell = pkgs.fish;
 
-	programs = {
-		fish.enable = true;
-	};
 
-	environment.localBinInPath =true;
-	environment.shellAliases = {
-	 # Git abbreviations
-	 "gau" = "git add --update";
-	 "ga" = "git add";
-	 "gcmsg" = "git commit -am";
-	 "gcob" = "git checkout -b";
-	 "gd" = "git diff";
-	 "gst" = "git status";
-	 "gp" = "git push";
-	 "gpf" = "git push --force-with-lease";
+  programs = {
+    fish.enable = true;
+  };
 
-	 # other
-	 "v" = "nvim";
-	 "tt" = "trash put";
-   };
+  environment.localBinInPath = true;
+  environment.shellAliases = {
+    # Git abbreviations
+    "gau" = "git add --update";
+    "ga" = "git add";
+    "gcmsg" = "git commit -am";
+    "gcob" = "git checkout -b";
+    "gd" = "git diff";
+    "gst" = "git status";
+    "gp" = "git push";
+    "gpf" = "git push --force-with-lease";
 
-	fonts.packages = with pkgs; [
-	  noto-fonts
-	  noto-fonts-cjk-sans
-	  noto-fonts-color-emoji
-	  liberation_ttf
-	  fira-code
-	  fira-code-symbols
-	  mplus-outline-fonts.githubRelease
-	  dina-font
-	  proggyfonts
-	];
+    # other
+    "v" = "nvim";
+    "m" = "neomutt";
+    "tt" = "trash put";
+  };
 
-	# enable usb automount
-	services.devmon.enable = true;
-	services.gvfs.enable = true; 
-	services.udisks2.enable = true;
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+  ];
 
-	  environment.sessionVariables = {
-		VISUAL  = "zeditor";
-		EDITOR = "nvim";
-	  };
+  # enable usb automount
+  services.devmon.enable = true;
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
 
-	  nixpkgs = { overlays = myOverlays; config.allowUnfree = true; };
-	  # only enables it for sudo for some reason...
-	  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-	  nix.settings.trusted-users = [ "root" "@wheel" "yara" ];
+  environment.sessionVariables = {
+    VISUAL = "zeditor";
+    EDITOR = "nvim";
+  };
+
+  networking.extraHosts = ''
+192.168.1.43 sgc
+192.168.1.15 asgard
+'';
+
+  nixpkgs = {
+    overlays = myOverlays;
+    config.allowUnfree = true;
+  };
+  # only enables it for sudo for some reason...
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+  nix.settings.trusted-users = [
+    "root"
+    "@wheel"
+    "yara"
+  ];
 }

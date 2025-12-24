@@ -45,6 +45,10 @@
 	# soon
     jujutsu = {
       enable = true;
+      settings.user = {
+        email = "git@yara.blue";
+        name = "Yara";
+      };
     };
   };
 }
