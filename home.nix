@@ -60,6 +60,7 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
+      "image/*" = "vipsdisp.desktop";
       "text/html" = "firefox.desktop";
       "x-scheme-handler/http" = "firefox.desktop";
       "x-scheme-handler/https" = "firefox.desktop";

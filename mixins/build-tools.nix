@@ -4,7 +4,10 @@
 		clang_20
 		gnumake
 		cmake
+		ninja
+		pkg-config
 		uv
 		typst
+		texliveFull
 	];
 }

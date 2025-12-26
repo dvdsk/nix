@@ -1,5 +1,16 @@
 { pkgs, ... }: 
 
+# TODO patch some of the neovim plugins to provide their needed executables?
+# (like ripgrep ast-grep etc)
+# let 
+# 	telescope_ast_grep = pkgs.vimPlugins.telescope-sg.override { 
+# 		postInstall = ''
+# 			
+# 		''
+#
+# 	};
+# in
+
 {
 programs.neovim = {
 	enable = true;
@@ -45,6 +56,7 @@ programs.neovim = {
 	leap-nvim
 	neomutt-vim
 	nvim-lspconfig
+	typst-preview-nvim
 
 	# Nouns, Verbs, textobjects
 	comment-nvim
@@ -75,4 +87,6 @@ programs.neovim = {
 	cmp_luasnip
 	];
 };
+
+
 }
