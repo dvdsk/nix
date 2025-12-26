@@ -16,6 +16,7 @@
 		settings = {
 			user.name = "Yara";
 			user.email = "git@yara.blue";
+			rerere.enable = true;
 		};
 		ignores = [
 			".direnv"

@@ -3,6 +3,7 @@
 		zed-editor # cant log in
 		inputs.tracy.packages.${pkgs.system}.default
 		easyeffects
+		inkscape
 		# inputs.zed.packages.${pkgs.system}.default
 
 		sqlitebrowser
@@ -13,6 +14,7 @@
 		# anki-widget
 
 		audacity
+		vipsdisp
 		vlc
 		nautilus
 

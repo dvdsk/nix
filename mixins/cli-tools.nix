@@ -9,6 +9,7 @@
 		btop
 		dua 			# disk usage
 		ripgrep
+		ast-grep
 		neomutt
 		fd
 		hyperfine
@@ -24,6 +25,7 @@
 		samply
 
 		neovim
+		websocat # used for typst preview from neovim
 
 		neomutt
 
